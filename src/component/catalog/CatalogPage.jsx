@@ -16,6 +16,7 @@ const CatalogPage = () => {
     const [totalPages, setTotalPages] = useState(0);
     const [sortBy, setSortBy] = useState("");
     const [sortOrder, setSortOrder] = useState("asc");
+    const [account, setAccount] = useState()
 
 
     const [debouncedSearch, setDebouncedSearch] = useState(search);
@@ -37,8 +38,36 @@ const CatalogPage = () => {
         return () => document.removeEventListener("mousedown", handleClickOutside);
     }, []);
 
+    const fetchAccountDetails = () => {
+        const token = localStorage.getItem("token");
+
+        const response = axios.get("http://192.168.1.4:8080/v1/account-management/findById", {
+            headers: {
+                "Authorization": `Bearer ${token}`
+            }
+        })
+
+        response.then(res => {
+            console.log(res.data)
+            const account = {
+                userName: res.data.userName,
+                fullName: res.data.fullName,
+                role: res.data.role
+            }
+            setAccount(account)
+        }).catch(e => console.log(e))
+    }
+    useEffect(
+        () => fetchAccountDetails(), []
+    )
 
 
+    const handleLogout = () => {
+        setIsAccountOpen(false);
+        localStorage.removeItem("token");
+
+        navigate("/");
+    };
 
     function retrieveBooks(page, pageSize) {
         console.log(localStorage.getItem('token'))
@@ -85,7 +114,7 @@ const CatalogPage = () => {
     const fetchBooks = async (keyword = "") => {
         try {
             const token = localStorage.getItem("token");
-            const response = await axios.get("http://192.168.1.5:8080/v1/catalog-management/search", {
+            const response = await axios.get("http://192.168.1.4:8080/v1/catalog-management/search", {
                 params: {
                     content: keyword
                 },
@@ -145,22 +174,34 @@ const CatalogPage = () => {
                             onClick={() => setIsAccountOpen(!isAccountOpen)}
                         >
                             <FaUserCircle className="user-icon" />
-                            <span>Moderator</span>
+                            <span>{account?.fullName || accountInfo.fullName}</span>
                         </button>
 
                         <div className={`dropdown ${isAccountOpen ? "open" : ""}`}>
                             <h2>Account Info</h2>
                             <div className="info">
                                 <div>
-                                    <strong>Name:</strong> {accountInfo.name}
+                                    <strong>Name : </strong>{account?.fullName || accountInfo.fullName}
                                 </div>
                                 <div>
-                                    <strong>Email:</strong> {accountInfo.email}
+                                    <strong>User Name : </strong>{account?.userName || accountInfo.userName}
                                 </div>
                                 <div>
-                                    <strong>Role:</strong> {accountInfo.role}
+                                    <strong>Role : </strong>{account?.role || accountInfo.role}
                                 </div>
                             </div>
+                            <button
+                                className="history-btn"
+                                onClick={() => {
+                                    setIsAccountOpen(false);
+                                    navigate("/order-history");
+                                }}
+                            >
+                                Books Borrowed
+                            </button>
+                            <button className="logout-btn" onClick={handleLogout}>
+                                Logout
+                            </button>
                         </div>
                     </div>
                 </div>

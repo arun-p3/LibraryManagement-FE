@@ -7,6 +7,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import './App.css';
 import InventoryPage from './component/inventory/InventoryPage';
+import OrderHistory from './component/borrowing-history/OrderHistory';
+import AdminPage from './component/admin-page/AdminPage';
 
 function App() {
   return (
@@ -18,25 +20,11 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/catalog" element={<CatalogPage />} />
           <Route path= "/inventory" element={<InventoryPage />} />
+          <Route path= "/order-history" element={<OrderHistory />} />
+          <Route path= "/admin-view" element={<AdminPage />} />
         </Routes>
       </div>
     </Router>
-    // <div className="App">
-    //   <header className="App-header">
-    //     <img src={logo} className="App-logo" alt="logo" />
-    //     <p>
-    //       Edit <code>src/App.js</code> and save to reload.
-    //     </p>
-    //     <a
-    //       className="App-link"
-    //       href="https://reactjs.org"
-    //       target="_blank"
-    //       rel="noopener noreferrer"
-    //     >
-    //       Learn React
-    //     </a>
-    //   </header>
-    // </div>
   );
 }
 

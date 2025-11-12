@@ -13,7 +13,7 @@ import axios from "axios";
 //         }
 //     });
 
-const BASE_URL = "http://192.168.1.5:8080/v1/catalog-management"; 
+const BASE_URL = "http://192.168.1.4:8080/v1/catalog-management"; 
 // or your IP if on same network: http://192.168.1.4:8080
 
 export const findAllBooks = async (page, size) => {

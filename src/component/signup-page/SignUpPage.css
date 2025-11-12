@@ -1,0 +1,106 @@
+/* ===== Container ===== */
+.signup-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #f0f2f5;
+  padding: 20px;
+}
+
+/* ===== Card ===== */
+.signup-card {
+  background: #fff;
+  padding: 40px 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  width: 100%;
+  max-width: 450px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.signup-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+}
+
+/* ===== Title ===== */
+.signup-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 25px;
+  color: #2c3e50;
+}
+
+/* ===== Form ===== */
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  width: 100%;   /* Ensure full width */
+}
+
+.form-group label {
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: #555;
+}
+
+.form-group input {
+  width: 100%; /* Make input take full width of card */
+  padding: 12px 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+  box-sizing: border-box; /* Important for proper width */
+}
+
+.form-group input:focus {
+  border-color: #1890ff;
+  box-shadow: 0 0 5px #1890ff44;
+}
+
+/* ===== Button ===== */
+.signup-btn {
+  padding: 12px 0;
+  background-color: #1890ff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+.signup-btn:hover {
+  background-color: #0f74d1;
+  transform: translateY(-2px);
+}
+
+/* ===== Error Message ===== */
+.error-message {
+  background-color: #fee2e2;
+  color: #b91c1c;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  text-align: left;
+  margin-bottom: 15px;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
