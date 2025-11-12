@@ -5,6 +5,7 @@ import axios from 'axios';
 const LoginPage = () => {
   const [form, setForm] = useState({ username: '', password: '' });
   const navigate = useNavigate();
+  const baseUrl = "http://192.168.1.5:8080";
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -17,7 +18,7 @@ const LoginPage = () => {
         password: form.password,
         role: 'ADMIN'
     }
-    axios.post('http://192.168.1.4:8080/v1/login/sign-in', loginRequest)
+    axios.post(`${baseUrl}/v1/login/sign-in`, loginRequest)
     .then(res => {
         console.log(res)
         localStorage.setItem("token", res.data)

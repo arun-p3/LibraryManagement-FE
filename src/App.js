@@ -6,6 +6,7 @@ import CatalogPage from './component/catalog/CatalogPage';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import './App.css';
+import InventoryPage from './component/inventory/InventoryPage';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/signup" element={<SignUpPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/catalog" element={<CatalogPage />} />
+          <Route path= "/inventory" element={<InventoryPage />} />
         </Routes>
       </div>
     </Router>

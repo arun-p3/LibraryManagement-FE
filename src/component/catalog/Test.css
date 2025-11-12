@@ -1,0 +1,340 @@
+/* ===== Body / Container ===== */
+.catalog-container {
+    background-color: #f2f4f8; /* subtle light gray background */
+    min-height: 100vh;
+    padding: 30px;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+}
+
+/* ===== Header ===== */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 32px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+.title {
+    font-size: 26px;
+    font-weight: 700;
+    color: #1f2937; /* dark gray */
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* ===== Cart Button ===== */
+.cart-button {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 16px;
+    background-color: #3b82f6; /* modern blue */
+    color: #fff;
+    border: none;
+    border-radius: 28px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.cart-button:hover {
+    background-color: #2563eb;
+    transform: scale(1.05);
+}
+
+/* ===== Account Section ===== */
+.account-section {
+    position: relative;
+}
+
+.account-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background-color: #f3f4f6; /* light gray */
+    border: none;
+    border-radius: 28px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.account-button:hover {
+    background-color: #e5e7eb;
+}
+
+.user-icon {
+    font-size: 20px;
+    color: #6b7280; /* gray icon */
+}
+
+/* ===== Account Dropdown ===== */
+.dropdown {
+    position: absolute;
+    top: 56px;
+    right: 0;
+    width: 260px;
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    opacity: 0;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 100;
+}
+
+.dropdown.open {
+    opacity: 1;
+    transform: scaleY(1);
+    pointer-events: auto;
+}
+
+.dropdown h2 {
+    margin-bottom: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.info div {
+    margin-bottom: 6px;
+    font-size: 14px;
+    color: #4b5563;
+}
+
+/* ===== Page Title ===== */
+.catalog-title {
+    text-align: center;
+    color: #1f2937;
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+/* ===== Search Bar ===== */
+.search-bar {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+.search-bar input {
+    width: 50%;
+    max-width: 420px;
+    padding: 12px 18px;
+    border: 2px solid #d1d5db;
+    border-radius: 28px;
+    outline: none;
+    font-size: 1rem;
+    transition: all 0.2s ease-in-out;
+}
+
+.search-bar input:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 8px rgba(59,130,246,0.25);
+}
+
+/* ===== Sort Section ===== */
+.sort-section {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 18px 24px;
+    margin: 20px auto;
+    max-width: 70%;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.sort-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.sort-select {
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+    font-size: 14px;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.sort-select:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 5px rgba(59,130,246,0.2);
+}
+
+.sort-btn {
+    background-color: #10b981; /* modern green */
+    color: #fff;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.sort-btn:hover {
+    background-color: #059669;
+}
+
+/* ===== Book Grid ===== */
+.book-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 22px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.book-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 22px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.book-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+}
+
+.book-title {
+    font-size: 1.4rem;
+    color: #111827;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.book-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-top: 18px;
+}
+
+.cart-btn,
+.expand-btn {
+    width: 65%;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.cart-btn {
+    background-color: #3b82f6;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+}
+
+.cart-btn:hover {
+    background-color: #2563eb;
+    transform: scale(1.05);
+}
+
+.expand-btn {
+    background-color: #f97316; /* orange */
+    color: #fff;
+}
+
+.expand-btn:hover {
+    background-color: #ea580c;
+}
+
+.book-details {
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px solid #e5e7eb;
+    color: #4b5563;
+    font-size: 0.92rem;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* ===== Pagination ===== */
+.pagination-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+    padding: 20px;
+    border-top: 2px solid #e5e7eb;
+    background-color: #ffffff;
+    border-radius: 12px;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.page-btn {
+    background-color: #3b82f6;
+    color: #fff;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 8px;
+    margin: 0 8px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.page-btn:disabled {
+    background-color: #d1d5db;
+    cursor: not-allowed;
+}
+
+.page-info {
+    font-weight: 500;
+}
+
+.page-size input {
+    width: 60px;
+    padding: 6px;
+    text-align: center;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+}
+
+/* ===== Animations ===== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
