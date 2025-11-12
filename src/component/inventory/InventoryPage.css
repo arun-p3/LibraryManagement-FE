@@ -82,6 +82,7 @@
     border: none;
     padding: 8px 14px;
     border-radius: 8px;
+    width: 180px;
     cursor: pointer;
     font-size: 0.9rem;
     transition: all 0.2s ease-in-out;
