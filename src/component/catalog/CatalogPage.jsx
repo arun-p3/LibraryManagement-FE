@@ -41,7 +41,7 @@ const CatalogPage = () => {
     const fetchAccountDetails = () => {
         const token = localStorage.getItem("token");
 
-        const response = axios.get("http://192.168.1.4:8080/v1/account-management/findById", {
+        const response = axios.get("http://localhost:8080/v1/account-management/findById", {
             headers: {
                 "Authorization": `Bearer ${token}`
             }
@@ -114,7 +114,7 @@ const CatalogPage = () => {
     const fetchBooks = async (keyword = "") => {
         try {
             const token = localStorage.getItem("token");
-            const response = await axios.get("http://192.168.1.4:8080/v1/catalog-management/search", {
+            const response = await axios.get("http://localhost:8080/v1/catalog-management/search", {
                 params: {
                     content: keyword
                 },

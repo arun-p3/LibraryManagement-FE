@@ -6,7 +6,7 @@ import './LoginPage.css';
 const LoginPage = () => {
   const [form, setForm] = useState({ username: '', password: '' });
   const navigate = useNavigate();
-  const baseUrl = "http://192.168.1.4:8080";
+  const baseUrl = "http://localhost:8080";
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });

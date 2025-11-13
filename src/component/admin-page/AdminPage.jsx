@@ -17,7 +17,7 @@ const AdminPage = () => {
 
     const [expanded, setExpanded] = useState({});
 
-    const baseUrl = "http://192.168.1.4:8080";
+    const baseUrl = "http://localhost:8080";
 
     useEffect(() => {
         fetchUsers();
@@ -98,7 +98,7 @@ const AdminPage = () => {
             };
 
             await axios.put(
-                "http://192.168.1.4:8080/v1/account-management/admin/update",
+                "http://localhost:8080/v1/account-management/admin/update",
                 requestBody,
                 {
                     headers: {

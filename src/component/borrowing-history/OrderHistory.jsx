@@ -9,7 +9,7 @@ const OrderHistory = () => {
     const fetchAccountDetails = () => {
         const token = localStorage.getItem("token");
 
-        axios.get("http://192.168.1.4:8080/v1/account-management/findById", {
+        axios.get("http://localhost:8080/v1/account-management/findById", {
             headers: { "Authorization": `Bearer ${token}` }
         })
             .then(res => {
@@ -24,7 +24,7 @@ const OrderHistory = () => {
     const handleReturnBook = async (orderId) => {
         try {
             const token = localStorage.getItem("token");
-            await axios.delete("http://192.168.1.4:8080/v1/inventory/return",
+            await axios.put("http://localhost:8080/v1/inventory/return", {}, 
                 {
                     params: {
                         accountId: accountId,
